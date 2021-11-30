@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+ gainers:
+  restart: always
+  build:
+   context: .
+  volumes:
+  - ./data:/usr/src/app/data
