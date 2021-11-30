@@ -50,7 +50,6 @@ class GainersSpider(scrapy.Spider):
         t_chunks = list(chunks(t_values, 7))
         df = pd.DataFrame(data=t_chunks)
         df[7] = datetime.datetime.now()
-        print(df)
         return df
 
 
