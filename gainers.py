@@ -49,8 +49,8 @@ class GainersSpider(scrapy.Spider):
         t_values = gainers_table.css('tbody td p::text, tbody td span::text, tbody td::text').getall()
         t_chunks = list(chunks(t_values, 7))
         df = pd.DataFrame(data=t_chunks)
-        df = df.drop(5, 1)
         df[7] = datetime.datetime.now()
+        print(df)
         return df
 
 
