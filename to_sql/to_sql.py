@@ -85,6 +85,7 @@ def init_db():
     constraint gainers_pk \
     primary key, \
     num integer, \
+    name integer, \
     symbol varchar(100), \
     price varchar(100), \
     gain double precision, \
