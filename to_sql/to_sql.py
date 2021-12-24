@@ -20,7 +20,7 @@ def check_all_and_to_sql():
     data_dir = '../data'
     all_files = glob.glob(data_dir + "/*.csv")
     all_files = sorted(all_files)
-    
+    print(f'{len(all_files)} files found in {data_dir}')
     not_visited_files = get_not_visited_files(all_files)
     print(f'saving {len(not_visited_files)} new files')
     chunk = []
