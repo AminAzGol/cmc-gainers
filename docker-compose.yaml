@@ -26,3 +26,6 @@ services:
   restart: always
   environment: 
     - DATABASE_URL=postgresql://postgres:postgresPassword@postgres:5432/postgres
+    - DATA_DIR=/data
+  volumes:
+    - ./data:/data

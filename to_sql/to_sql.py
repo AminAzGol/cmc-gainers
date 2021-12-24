@@ -17,7 +17,7 @@ def start_job_scheduler():
         time.sleep(100)
 
 def check_all_and_to_sql():
-    data_dir = '../data'
+    data_dir = os.environ['DATA_DIR']
     all_files = glob.glob(data_dir + "/*.csv")
     all_files = sorted(all_files)
     print(f'{len(all_files)} files found in {data_dir}')
