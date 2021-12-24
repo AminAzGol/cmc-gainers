@@ -1,3 +1,4 @@
+print('debug: before imports')
 from sqlalchemy import MetaData, create_engine, inspect
 import pandas as pd
 import psycopg2
@@ -5,9 +6,11 @@ import numpy as np
 import glob
 import os
 import time
+print('debug: after imports')
 
 
 db_engine = create_engine(os.environ['DATABASE_URL'])
+print('debug: db_engine created')
 
 
 def start_job_scheduler():
