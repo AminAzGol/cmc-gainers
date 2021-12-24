@@ -6,7 +6,8 @@ import glob
 import os
 import time
 
-db_engine = create_engine('postgresql://postgres:postgresPassword@postgres:30432/postgres')
+
+db_engine = create_engine(os.environ['DATABASE_URL'])
 
 
 def start_job_scheduler():

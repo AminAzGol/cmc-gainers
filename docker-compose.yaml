@@ -24,3 +24,5 @@ services:
   depends_on: 
    - postgres
   restart: always
+  environment: 
+    -DATABASE_URL=postgresql://postgres:postgresPassword@postgres:5432/postgres
