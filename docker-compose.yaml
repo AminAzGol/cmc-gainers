@@ -7,3 +7,20 @@ services:
    context: .
   volumes:
   - ./data:/usr/src/app/data
+ postgres:
+  image: postgres:14.0
+  restart: always
+  environment:
+      POSTGRES_PASSWORD: postgresPassword
+      POSTGRES_DB: postgres
+  volumes:
+      - /db_data:/var/lib/postgresql/data
+  ports:
+      - 30432:5432
+ 
+ to_sql:
+  build:
+   context: ./to_sql/
+  depends_on: 
+   - postgres
+  restart: always
