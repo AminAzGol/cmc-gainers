@@ -1,0 +1,1 @@
+select * from cmc.gainers limit 10;

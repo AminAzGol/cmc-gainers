@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  windows_cron_psql:
+    build: 
+      context: .
+    restart: always
+    environment:
+      PGHOST: attribute-me-server_postgres_1
+      PGPORT: 5432
+      PGDATABASE: postgres
+      PGUSER: postgres
+      PGPASSWORD: postgresPassword
+    
+    networks:
+      - attribute-me-server_default
+
+networks:
+  attribute-me-server_default:
+    external: true  

@@ -6,7 +6,10 @@ import numpy as np
 import glob
 import os
 import time
+from dotenv import load_dotenv
+
 print('debug: after imports')
+load_dotenv()
 
 
 db_engine = create_engine(os.environ['DATABASE_URL'])
@@ -23,6 +26,9 @@ def check_all_and_to_sql():
     data_dir = os.environ['DATA_DIR']
     all_files = glob.glob(data_dir + "/*.csv")
     all_files = sorted(all_files)
+    if(len(all_files) == 0):
+        print(f'No files in {data_dir}')
+        return
     print(f'{len(all_files)} files found in {data_dir}')
     not_visited_files = get_not_visited_files(all_files)
     print(f'saving {len(not_visited_files)} new files')
@@ -40,6 +46,8 @@ def get_not_visited_files(files_list):
     visite_df = pd.read_sql('select file from cmc.visited', db_engine)
     fdf = pd.DataFrame(files_list)
     fdf = fdf[~fdf.apply(tuple,1).isin(visite_df.apply(tuple,1))]
+    print(fdf)
+
     li = fdf[0].to_list()
     return li
 

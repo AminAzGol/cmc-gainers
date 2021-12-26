@@ -29,3 +29,14 @@ services:
     - DATA_DIR=/data
   volumes:
     - ./data:/data
+
+  windows_cron_psql:
+    build: 
+      context: .
+    restart: always
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: postgres
+      PGUSER: postgres
+      PGPASSWORD: postgresPassword
