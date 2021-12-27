@@ -32,7 +32,7 @@ services:
 
  windows_cron_psql:
   build: 
-   context: ../to_sql/find_windows
+   context: ./to_sql/find_windows
   restart: always
   environment:
    PGHOST: postgres
