@@ -21,6 +21,7 @@ RUN touch /var/log/cron.log
 RUN apt-get install -y postgresql-client
 
 # Env load script
+RUN chmod 777 /src/create_env_load_file.sh
 
 CMD /src/create_env_load_file.sh && cron && tail -f /var/log/cron.log
 
