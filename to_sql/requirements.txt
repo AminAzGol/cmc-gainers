@@ -2,4 +2,4 @@ sqlalchemy
 psycopg2
 pandas
 numpy
-dotenv
+python-dotenv
