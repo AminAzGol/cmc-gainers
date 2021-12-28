@@ -66,7 +66,7 @@ def files_chunk_to_pandas_to_sql(files_chunk):
             
         
         li.append(df)
-    
+    print(li[:10])
     frame = pd.concat(li)
     
     print(frame.head())
