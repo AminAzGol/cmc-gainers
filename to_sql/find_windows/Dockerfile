@@ -6,6 +6,7 @@ WORKDIR /cron
 
 COPY find-window-cron /etc/cron.d/find-window-cron
 COPY find_gaps_and_windows.sql /src/find_gaps_and_windows.sql
+COPY test.sql /src/test.sql
 COPY create_env_load_file.sh /src/create_env_load_file.sh
 
 # Give execution rights on the cron job
