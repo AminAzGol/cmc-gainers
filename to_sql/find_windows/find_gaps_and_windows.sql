@@ -36,7 +36,7 @@ begin
         for time_gap in execute for_query using the_symbol
 	         loop
                 raise notice 'time gap: %', to_json(time_gap);
-                execute update_query || 'and time < $2' using '_' || i, time_gap.time;
+                execute update_query || 'and time > $2' using '_' || i, time_gap.time;
                 i := i +1;
              end loop;
 
