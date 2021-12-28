@@ -69,6 +69,7 @@ def files_chunk_to_pandas_to_sql(files_chunk):
     
     frame = pd.concat(li)
     
+    print(frame.head())
     # keep only the ones with right value order
     frame = frame[frame['5'] == '%']
     
