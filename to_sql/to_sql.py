@@ -66,21 +66,17 @@ def files_chunk_to_pandas_to_sql(files_chunk):
             
         
         li.append(df)
-    print('files chunk')
-    print(files_chunk)
-    print("list: ")
-    print(li[:10])
+
     frame = pd.concat(li)
     
-    print(frame.head())
-    # keep only the ones with right value order
-    frame = frame[frame['5'] == '%']
-    
-    
-    frame = frame.drop('5', 1)
-    frame = frame.drop('Unnamed: 0', 1)
-    frame = frame.rename(columns={'0': 'num', '1': 'name', '2':'symbol', '3': 'price', '4': 'gain', '6': 'vol', '7': 'time'})
-    frame.to_sql('gainers', db_engine, schema='cmc', if_exists='append', index=False)
+    if not (frame.empty):
+        # keep only the ones with right value order
+        frame = frame[frame['5'] == '%']
+        frame = frame.drop('5', 1)
+        frame = frame.drop('Unnamed: 0', 1)
+        frame = frame.rename(columns={'0': 'num', '1': 'name', '2':'symbol', '3': 'price', '4': 'gain', '6': 'vol', '7': 'time'})
+        frame.to_sql('gainers', db_engine, schema='cmc', if_exists='append', index=False)
+        
     visited_frame.to_sql('visited', db_engine, schema='cmc', if_exists='append', index=False)
     return visited_frame
 
