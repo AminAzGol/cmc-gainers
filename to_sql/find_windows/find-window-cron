@@ -1,2 +1,2 @@
-* * * * * . /src/project_env.sh; psql -af /src/test.sql >> /var/log/cron.log 2>&1 
+* * * * * . /src/project_env.sh; psql -af /src/find_gaps_and_windows.sql >> /var/log/cron.log 2>&1 
 # An empty line is required at the end of this file for a valid cron file.
