@@ -14,7 +14,7 @@ declare
 begin
     ALTER TABLE cmc.gainers ADD COLUMN IF NOT EXISTS windw VARCHAR(50);
 
-	query := 'select distinct symbol from cmc.gainers where windw is NULL';
+	query := 'select distinct symbol from cmc.gainers where windw is NULL limit 20';
 
 	for sym in execute query using rec_count
         loop
